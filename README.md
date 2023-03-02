@@ -1,0 +1,40 @@
+# fed-interview-doc
+
+[![NPM version](https://img.shields.io/npm/v/fed-interview-doc.svg?style=flat)](https://npmjs.org/package/fed-interview-doc)
+[![NPM downloads](http://img.shields.io/npm/dm/fed-interview-doc.svg?style=flat)](https://npmjs.org/package/fed-interview-doc)
+
+A react library developed with dumi
+
+## Usage
+
+TODO
+
+## Options
+
+TODO
+
+## Development
+
+```bash
+# install dependencies
+$ pnpm install
+
+# develop library by docs demo
+$ pnpm start
+
+# build library source code
+$ pnpm run build
+
+# build library source code in watch mode
+$ pnpm run build:watch
+
+# build docs
+$ pnpm run docs:build
+
+# check your project for potential problems
+$ pnpm run doctor
+```
+
+## LICENSE
+
+MIT
