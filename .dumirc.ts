@@ -3,6 +3,6 @@ import { defineConfig } from 'dumi';
 export default defineConfig({
   outputPath: 'docs-dist',
   themeConfig: {
-    name: 'fed-doc',
+    name: 'tonn-doc',
   },
 });
