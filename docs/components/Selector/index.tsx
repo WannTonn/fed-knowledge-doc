@@ -2,14 +2,14 @@ import { Empty, Select, SelectProps, Spin } from 'antd';
 import { debounce } from 'lodash';
 import React, { useMemo, useState } from 'react';
 /**
- * @description
+ * @description 带防抖的Selector
  */
 interface IDebounceSelector extends SelectProps {
-  /**  */
+  /** 配置onSearch触发请求的方法 */
   fetchOptions: (search: string) => Promise<[]>;
-  /**  */
+  /** 防抖的时间配置，默认300ms */
   debounceTime?: number;
-  /**  */
+  /** 为确保可以正常显示，配置从数据源中能取到的 label/value的字段。 */
   returnValueType?: { label: string; value: any };
   /** 是否开启在selector focus的时候请求列表数据，减少请求 */
   alwaysfetch?: boolean;
@@ -25,9 +25,6 @@ const Selector = (props: IDebounceSelector) => {
     alwaysfetch,
   } = props;
   const debounceFetcher = useMemo(() => {
-    /* if (isTyping) {
-      return;
-    } */
     const loadOptions = (keyword: string = '') => {
       setOptions([]);
       setFetchLoading(true);
@@ -48,20 +45,21 @@ const Selector = (props: IDebounceSelector) => {
     };
     return debounce(loadOptions, debounceTime);
   }, [fetchOptions, debounceTime]);
+  /** 在Selector组件点击时，通过传入的alwaysfetch来判断是否要重新请求 */
   const handleFocus = async () =>
     ((!options?.length && !alwaysfetch) || alwaysfetch) && debounceFetcher?.();
   return (
     <Select
       style={{ width: '100%' }}
       filterOption={false}
+      showSearch={true}
       onSearch={debounceFetcher}
       onFocus={handleFocus}
-      showSearch={true}
       notFoundContent={
         fetchLoading ? <Spin /> : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
       }
-      {...props}
       options={options}
+      {...props}
     />
   );
 };
@@ -83,7 +81,7 @@ const DebounceSelector = () => {
         fetchOptions={handleGetData}
         returnValueType={{ label: 'username', value: 'id' }}
         alwaysfetch={false}
-        placeholder="请输入关键词"
+        placeholder="请选择"
       />
     </>
   );
