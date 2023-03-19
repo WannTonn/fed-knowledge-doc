@@ -1,21 +1,21 @@
 ---
 hero:
   title: Keep Learning
-  description: 自用前端复习文档
+  description: 自用前端复习文档与组件积累
   actions:
-    - text: Let's move
-      link: /
+    # - text: Let's move
+    #   link: /
     # - text: World
     #   link: /
 features:
-  - title: Hello
+  - title: Pick
     emoji: 💎
-    description: Put hello description here
-  - title: World
+    description: 比昨天的自己
+  - title: You
     emoji: 🌈
-    description: Put world description here
-  - title: '!'
+    description: 更加的
+  - title: 'Want!'
     emoji: 🚀
-    description: Put ! description here
+    description: 牛逼！
 ---
 
