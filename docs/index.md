@@ -3,13 +3,15 @@ hero:
   title: Keep Learning
   description: 自用前端复习文档与组件积累
   actions:
-    # - text: Let's move
-    #   link: /
-    # - text: World
-    #   link: /
+    - text: 前端 →
+      link: /Fed
+    - text: Python →
+      link: /python
+    - text: Components →
+      link: /components
 features:
   - title: Pick
-    emoji: 💎
+    emoji: ✈️
     description: 比昨天的自己
   - title: You
     emoji: 🌈
@@ -17,5 +19,6 @@ features:
   - title: 'Want!'
     emoji: 🚀
     description: 牛逼！
+    # link: /Fed
 ---
 

@@ -54,7 +54,7 @@ const InputWithDebounce = () => {
   }
   return (<div>
     <CustomInput onChange={handleValChange} />
-    <h3>{showText}</h3>
+    <h3>当前输入文案：{showText}</h3>
   </div>)
 }
 export default InputWithDebounce;
