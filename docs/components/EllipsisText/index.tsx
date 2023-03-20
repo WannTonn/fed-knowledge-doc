@@ -35,14 +35,14 @@ const Text = (props: IProps) => {
   );
 };
 const EllipsisText = () => {
-  const text =
-    '我是content我是content我是content我是content我是content我是content我是content我是content我是content我是content我是content我是content我是content我是content我是content我是content我是content我是content我是content我是content我是content我是content我是content我是content';
+  const text = new Array(30).fill('我是content');
+
   return (
-    <Text
-      title={<div style={{ color: '#fff' }}>{text}</div>}
-      content={text}
-      clampLine={0}
-    ></Text>
+      <Text
+        title={<div style={{ color: '#fff' }}>{text}</div>}
+        content={text}
+        clampLine={2}
+      ></Text>
   );
 };
 export default EllipsisText;
