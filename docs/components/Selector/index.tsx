@@ -76,14 +76,12 @@ const DebounceSelector = () => {
     return data;
   };
   return (
-    <>
-      <Selector
-        fetchOptions={handleGetData}
-        returnValueType={{ label: 'username', value: 'id' }}
-        alwaysfetch={false}
-        placeholder="请选择"
-      />
-    </>
+    <Selector
+      fetchOptions={handleGetData}
+      returnValueType={{ label: 'username', value: 'id' }}
+      alwaysfetch={false}
+      placeholder="请选择"
+    />
   );
 };
 export default DebounceSelector;

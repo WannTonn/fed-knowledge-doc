@@ -1,0 +1,13 @@
+.ellipsisTxt {
+  display: inline-block;
+  min-width: 300px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  &.multiLine {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    white-space: unset;
+  }
+}

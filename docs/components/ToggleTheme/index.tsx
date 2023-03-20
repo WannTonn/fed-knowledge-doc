@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Selector from '../Selector';
 /**
  * @description 主题切换
  */
@@ -7,7 +7,8 @@ import React from 'react';
 const Component: React.FC = () => {
   return (
     <div>
-      
+      1111
+      <Selector></Selector>
     </div>
   )
 }

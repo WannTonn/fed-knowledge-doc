@@ -36,7 +36,7 @@ const CustomInput = (props: IProps) => {
   }
   const debounceInput = useMemo(() => {
     return debounce(handleValChange, debounceTime);
-  }, [onChange, debounceTime])
+  }, [onChange, debounceTime]);
   return (
       <Input
         placeholder='请输入关键词'
