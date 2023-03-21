@@ -15,7 +15,22 @@ nav:
 - 引入 `loadsh` 库的 `debounce` 方法，对 Select 的`onSearch`的触发事件进行防抖操作
 - 请求的接口 https://jsonplaceholder.typicode.com/users 为精准匹配，具体以实际业务为主
 
-<code src="./Selector/index.tsx"></code>
+```jsx
+/**
+ * iframe: false
+ * compact: false
+ */
+
+import React from 'react';
+import Selector from './Selector';
+export default () => (
+  <div style={{ padding: 20 }}>
+    <Selector />
+  </div>
+);
+```
+
+<!-- <code src="./Selector/index.tsx">1</code> -->
 
 ## 带防抖的 Input 组件
 
@@ -23,7 +38,22 @@ nav:
 - 引入 `loadsh` 库的 `debounce` 方法，对 Input 触发事件进行防抖操作
 - 添加对中文输入的处理，避免在中文输入时频繁触发事件
 
-<code src="./Input/index.tsx"></code>
+```jsx
+/**
+ * iframe: false
+ * compact: false
+ */
+
+import React from 'react';
+import Input from './Input';
+export default () => (
+  <div>
+    <Input />
+  </div>
+);
+```
+
+<!-- <code src="./Input/index.tsx" iframe="false"></code> -->
 
 ## 单/多行文本超出截断
 
@@ -33,14 +63,22 @@ nav:
 
 ```jsx
 /**
- * iframe: true
- * compact: true
+ * iframe: false
+ * compact: false
  */
 
 import React from 'react';
-import EllipsisText from './EllipsisText'
-export default () => <div style={{width: '90vw', padding: 20}}><EllipsisText /></div>
-
+import EllipsisText from './EllipsisText';
+export default () => {
+  const text = new Array(30).fill('我是content');
+  return (
+    <div style={{ padding: 20 }}>
+      <EllipsisText
+        title={<div style={{ color: '#fff' }}>{text}</div>}
+        content={text}
+        clampLine={2}
+      />
+    </div>
+  );
+};
 ```
-
-

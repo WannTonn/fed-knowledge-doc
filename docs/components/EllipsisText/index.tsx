@@ -14,7 +14,7 @@ interface IProps {
   /** 配置多行的行数，有值则用-webkit-clamp 来实现多行文本溢出，保留单行文本溢出样式做兼容 */
   clampLine?: number;
 }
-const Text = (props: IProps) => {
+const EllipsisText = (props: IProps) => {
   const { title, style = {}, content, clampLine, ...restProps } = props;
   /** 如果有配置 */
 
@@ -34,15 +34,5 @@ const Text = (props: IProps) => {
     </Tooltip>
   );
 };
-const EllipsisText = () => {
-  const text = new Array(30).fill('我是content');
 
-  return (
-      <Text
-        title={<div style={{ color: '#fff' }}>{text}</div>}
-        content={text}
-        clampLine={2}
-      ></Text>
-  );
-};
 export default EllipsisText;
