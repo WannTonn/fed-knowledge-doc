@@ -105,6 +105,13 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
   open ~/.zshrc
   ZSH_THEME="bira"
 ```
+ 
+## 替换 oh-my-zsh 的镜像源
+```shell
+$ cd ~/.oh-my-zsh
+$ git remote set-url origin https://gitee.com/mirrors/oh-my-zsh.git
+$ git pull
+```
 
 ## 安装 node / npm / yarn
 

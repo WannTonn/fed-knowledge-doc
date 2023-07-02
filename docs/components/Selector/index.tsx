@@ -6,34 +6,34 @@ import React, { useMemo, useState } from 'react';
  */
 interface IDebounceSelector extends SelectProps {
   /** 配置onSearch触发请求的方法 */
-  fetchOptions: (search: string) => Promise<[]>;
+  fetchoptions: (search: string) => Promise<[]>;
   /** 防抖的时间配置，默认300ms */
   debounceTime?: number;
   /** 为确保可以正常显示，配置从数据源中能取到的 label/value的字段。 */
-  returnValueType?: { label: string; value: any };
+  valmap?: { label: string; value: any };
   /** 是否开启在selector focus的时候请求列表数据，减少请求 */
-  alwaysfetch?: boolean;
+  alwaysfetch?: string;
 }
 const Selector = (props: IDebounceSelector) => {
   const [fetchLoading, setFetchLoading] = useState(false);
   const [options, setOptions] = useState<any[]>([]);
   // const [isTyping, setIsTyping] = useState(false);
   let {
-    fetchOptions,
+    fetchoptions,
     debounceTime = 300,
-    returnValueType,
-    alwaysfetch,
+    valmap,
+    alwaysfetch = 'false',
   } = props;
   const debounceFetcher = useMemo(() => {
     const loadOptions = (keyword: string = '') => {
       setOptions([]);
       setFetchLoading(true);
-      fetchOptions(keyword)
+      fetchoptions(keyword)
         .then((newOptions: any[] = []) => {
           let newOptions_ = newOptions?.map((e) => {
             return {
-              label: e[returnValueType ? returnValueType['label'] : 'name'],
-              value: e[returnValueType ? returnValueType['value'] : 'value'],
+              label: e[valmap ? valmap['label'] : 'name'],
+              value: e[valmap ? valmap['value'] : 'value'],
             };
           });
           setOptions(newOptions_);
@@ -44,10 +44,10 @@ const Selector = (props: IDebounceSelector) => {
         });
     };
     return debounce(loadOptions, debounceTime);
-  }, [fetchOptions, debounceTime]);
+  }, [fetchoptions, debounceTime]);
   /** 在Selector组件点击时，通过传入的alwaysfetch来判断是否要重新请求 */
   const handleFocus = async () =>
-    ((!options?.length && !alwaysfetch) || alwaysfetch) && debounceFetcher?.();
+    ((!options?.length && alwaysfetch === 'false') || alwaysfetch === 'true') && debounceFetcher?.();
   return (
     <Select
       style={{ width: '100%' }}
@@ -77,9 +77,9 @@ const DebounceSelector = () => {
   };
   return (
     <Selector
-      fetchOptions={handleGetData}
-      returnValueType={{ label: 'username', value: 'id' }}
-      alwaysfetch={false}
+      fetchoptions={handleGetData}
+      valmap={{ label: 'username', value: 'id' }}
+      alwaysfetch="false"
       placeholder="请选择"
     />
   );
