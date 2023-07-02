@@ -12,7 +12,8 @@ order: 0
 ## 准备事项
  - 云服务器一台(Linux),此处用的Ubuntu 18.04
  - 物理机一台（远程用）
- - [配置Ubuntu的镜像源]({{< ref "/fed/Deploy/Linux_Repo.md" >}})
+ <!-- - [配置Ubuntu的镜像源]({{< ref "/fed/Deploy/Linux_Repo.md" >}}) -->
+ - [配置Ubuntu的镜像源](/fed/deploy-linux-repo)
 
 ## 开始安装
 1. 配置apt-get的Jenkins的repo
